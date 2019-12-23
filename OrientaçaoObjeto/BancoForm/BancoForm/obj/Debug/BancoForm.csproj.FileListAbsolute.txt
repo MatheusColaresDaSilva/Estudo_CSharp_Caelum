@@ -1,0 +1,9 @@
+C:\Users\mcs.silva\Desktop\matheus\Arquivos Qlik\personal\C#\Caelum\OrientaçaoObjeto\BancoForm\BancoForm\obj\Debug\BancoForm.csprojAssemblyReference.cache
+C:\Users\mcs.silva\Desktop\matheus\Arquivos Qlik\personal\C#\Caelum\OrientaçaoObjeto\BancoForm\BancoForm\obj\Debug\BancoForm.Form1.resources
+C:\Users\mcs.silva\Desktop\matheus\Arquivos Qlik\personal\C#\Caelum\OrientaçaoObjeto\BancoForm\BancoForm\obj\Debug\BancoForm.Properties.Resources.resources
+C:\Users\mcs.silva\Desktop\matheus\Arquivos Qlik\personal\C#\Caelum\OrientaçaoObjeto\BancoForm\BancoForm\obj\Debug\BancoForm.csproj.GenerateResource.cache
+C:\Users\mcs.silva\Desktop\matheus\Arquivos Qlik\personal\C#\Caelum\OrientaçaoObjeto\BancoForm\BancoForm\bin\Debug\BancoForm.exe.config
+C:\Users\mcs.silva\Desktop\matheus\Arquivos Qlik\personal\C#\Caelum\OrientaçaoObjeto\BancoForm\BancoForm\bin\Debug\BancoForm.exe
+C:\Users\mcs.silva\Desktop\matheus\Arquivos Qlik\personal\C#\Caelum\OrientaçaoObjeto\BancoForm\BancoForm\bin\Debug\BancoForm.pdb
+C:\Users\mcs.silva\Desktop\matheus\Arquivos Qlik\personal\C#\Caelum\OrientaçaoObjeto\BancoForm\BancoForm\obj\Debug\BancoForm.exe
+C:\Users\mcs.silva\Desktop\matheus\Arquivos Qlik\personal\C#\Caelum\OrientaçaoObjeto\BancoForm\BancoForm\obj\Debug\BancoForm.pdb
