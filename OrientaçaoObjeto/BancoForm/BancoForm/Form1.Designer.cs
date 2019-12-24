@@ -30,6 +30,7 @@
         {
             this.tabBanco = new System.Windows.Forms.TabControl();
             this.pageSacaDeposita = new System.Windows.Forms.TabPage();
+            this.btnNovaConta = new System.Windows.Forms.Button();
             this.gBoxBuscaConta = new System.Windows.Forms.GroupBox();
             this.cBoxEscolheConta = new System.Windows.Forms.ComboBox();
             this.btnBuscarConta = new System.Windows.Forms.Button();
@@ -51,13 +52,13 @@
             this.textoValor = new System.Windows.Forms.TextBox();
             this.pageTransferir = new System.Windows.Forms.TabPage();
             this.gBoxTransferir = new System.Windows.Forms.GroupBox();
+            this.lblContaDestino = new System.Windows.Forms.Label();
             this.lblValorTransferir = new System.Windows.Forms.Label();
             this.txtValorTransferir = new System.Windows.Forms.TextBox();
             this.cBoxContaDestino = new System.Windows.Forms.ComboBox();
             this.cBoxContaOrigem = new System.Windows.Forms.ComboBox();
             this.btnTransferir = new System.Windows.Forms.Button();
             this.lblContaOrigem = new System.Windows.Forms.Label();
-            this.lblContaDestino = new System.Windows.Forms.Label();
             this.tabBanco.SuspendLayout();
             this.pageSacaDeposita.SuspendLayout();
             this.gBoxBuscaConta.SuspendLayout();
@@ -79,6 +80,7 @@
             // 
             // pageSacaDeposita
             // 
+            this.pageSacaDeposita.Controls.Add(this.btnNovaConta);
             this.pageSacaDeposita.Controls.Add(this.gBoxBuscaConta);
             this.pageSacaDeposita.Controls.Add(this.gBoxTotalizadot);
             this.pageSacaDeposita.Controls.Add(this.gBoxConta);
@@ -89,6 +91,16 @@
             this.pageSacaDeposita.TabIndex = 0;
             this.pageSacaDeposita.Text = "Aba 1";
             this.pageSacaDeposita.UseVisualStyleBackColor = true;
+            // 
+            // btnNovaConta
+            // 
+            this.btnNovaConta.Location = new System.Drawing.Point(6, 278);
+            this.btnNovaConta.Name = "btnNovaConta";
+            this.btnNovaConta.Size = new System.Drawing.Size(75, 23);
+            this.btnNovaConta.TabIndex = 14;
+            this.btnNovaConta.Text = "Nova Conta";
+            this.btnNovaConta.UseVisualStyleBackColor = true;
+            this.btnNovaConta.Click += new System.EventHandler(this.btnNovaConta_Click);
             // 
             // gBoxBuscaConta
             // 
@@ -124,10 +136,12 @@
             // 
             // txtBuscarConta
             // 
+            this.txtBuscarConta.ForeColor = System.Drawing.Color.Black;
             this.txtBuscarConta.Location = new System.Drawing.Point(117, 19);
             this.txtBuscarConta.Name = "txtBuscarConta";
             this.txtBuscarConta.Size = new System.Drawing.Size(119, 20);
             this.txtBuscarConta.TabIndex = 11;
+            this.txtBuscarConta.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // lblEscolhaConta
             // 
@@ -296,6 +310,15 @@
             this.gBoxTransferir.TabStop = false;
             this.gBoxTransferir.Text = "Transferir";
             // 
+            // lblContaDestino
+            // 
+            this.lblContaDestino.AutoSize = true;
+            this.lblContaDestino.Location = new System.Drawing.Point(36, 68);
+            this.lblContaDestino.Name = "lblContaDestino";
+            this.lblContaDestino.Size = new System.Drawing.Size(124, 13);
+            this.lblContaDestino.TabIndex = 17;
+            this.lblContaDestino.Text = "Escolha a Conta Destino";
+            // 
             // lblValorTransferir
             // 
             this.lblValorTransferir.AutoSize = true;
@@ -346,15 +369,6 @@
             this.lblContaOrigem.Size = new System.Drawing.Size(121, 13);
             this.lblContaOrigem.TabIndex = 10;
             this.lblContaOrigem.Text = "Escolha a Conta Origem";
-            // 
-            // lblContaDestino
-            // 
-            this.lblContaDestino.AutoSize = true;
-            this.lblContaDestino.Location = new System.Drawing.Point(36, 68);
-            this.lblContaDestino.Name = "lblContaDestino";
-            this.lblContaDestino.Size = new System.Drawing.Size(124, 13);
-            this.lblContaDestino.TabIndex = 17;
-            this.lblContaDestino.Text = "Escolha a Conta Destino";
             // 
             // Form1
             // 
@@ -412,6 +426,7 @@
         private System.Windows.Forms.TextBox txtValorTransferir;
         private System.Windows.Forms.ComboBox cBoxContaDestino;
         private System.Windows.Forms.Label lblContaDestino;
+        private System.Windows.Forms.Button btnNovaConta;
     }
 }
 

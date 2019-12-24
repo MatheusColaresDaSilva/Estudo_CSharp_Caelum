@@ -13,8 +13,9 @@ namespace BancoForm
     public partial class Form1 : Form
     {
         //private ContaCorrente conta;
-        private Conta[] contas;
+        private List<Conta> contas;
         private TotalizadorDeContas totalizador;
+
         public Form1()
         {
             InitializeComponent();
@@ -23,41 +24,22 @@ namespace BancoForm
         private void Form1_Load(object sender, EventArgs e)
         {
             this.totalizador = new TotalizadorDeContas();
-            //this.conta = new ContaCorrente();
-            this.contas = new Conta[3];
-            
-            this.contas[0] = new Conta();
-            this.contas[0].Titular = new Cliente("Victor");
-            this.contas[0].Numero = 1;
+            this.contas = new List<Conta>();
 
-            this.contas[1] = new ContaPoupanca();
-            this.contas[1].Titular = new Cliente("Mauricio");
-            this.contas[1].Numero = 2;
+            Conta c1 = new Conta();
+            c1.Titular = new Cliente("Victor");
+            c1.Numero = 1;
+            this.contas.Add(c1);
 
-            this.contas[2] = new ContaCorrente();
-            this.contas[2].Titular = new Cliente("Osni");
-            this.contas[2].Numero = 3;
-
-            foreach (Conta conta in this.contas)
-            {
-                cBoxEscolheConta.Items.Add("Titular: " + conta.Titular.Nome);
-                cBoxContaOrigem.Items.Add(conta.Numero);
-                cBoxContaDestino.Items.Add(conta.Numero);
-            }
-
-            /*conta.Numero = 1;
-            Cliente cliente = new Cliente("Victor");
-            conta.Titular = cliente;
-
-            textoTitular.Text = conta.Titular.Nome;
-            textoSaldo.Text = Convert.ToString(conta.Saldo);
-            textoNumero.Text = Convert.ToString(conta.Numero);*/
+            this.popularComboBox(cBoxEscolheConta, c1);
+            this.popularComboBox(cBoxContaOrigem, c1);
+            this.popularComboBox(cBoxContaDestino, c1);
         }
 
         private void btnDepositar_Click(object sender, EventArgs e)
         {
             int indice = cBoxEscolheConta.SelectedIndex;
-            Conta contaSelecionada = this.contas[indice];
+            Conta contaSelecionada = this.contas.ElementAt(indice);
 
             double valorDigitado = Convert.ToDouble(textoValor.Text);
             contaSelecionada.Deposita(valorDigitado);
@@ -72,7 +54,7 @@ namespace BancoForm
         private void btnSacar_Click(object sender, EventArgs e)
         {
             int indice = cBoxEscolheConta.SelectedIndex;
-            Conta contaSelecionada = this.contas[indice];
+            Conta contaSelecionada = this.contas.ElementAt(indice);
 
             double valorDigitado = Convert.ToDouble(textoValor.Text);
             
@@ -91,7 +73,7 @@ namespace BancoForm
         private void btnBuscarConta_Click(object sender, EventArgs e)
         {
             int indice = Convert.ToInt32(txtBuscarConta.Text);
-            Conta contaSelecionada = this.contas[indice];
+            Conta contaSelecionada = this.contas.ElementAt(indice);
 
             textoTitular.Text = contaSelecionada.Titular.Nome;
             textoSaldo.Text = Convert.ToString(contaSelecionada.Saldo);
@@ -101,7 +83,7 @@ namespace BancoForm
         private void cBoxEscolheConta_SelectedIndexChanged(object sender, EventArgs e)
         {
             int indice = cBoxEscolheConta.SelectedIndex;
-            Conta contaSelecionada = this.contas[indice];
+            Conta contaSelecionada = this.contas.ElementAt(indice);
 
             textoTitular.Text = contaSelecionada.Titular.Nome;
             textoSaldo.Text = Convert.ToString(contaSelecionada.Saldo);
@@ -113,8 +95,8 @@ namespace BancoForm
             int indiceOrigem = cBoxContaOrigem.SelectedIndex;
             int indiceDestino = cBoxContaDestino.SelectedIndex;
             double valorDigitado = Convert.ToDouble(txtValorTransferir.Text);
-            Conta contaOrigem = this.contas[indiceOrigem];
-            Conta contaDestino = this.contas[indiceDestino];
+            Conta contaOrigem = this.contas.ElementAt(indiceOrigem);
+            Conta contaDestino = this.contas.ElementAt(indiceDestino);
 
             if(contaOrigem.Transfere(contaDestino, valorDigitado))
             {
@@ -124,6 +106,29 @@ namespace BancoForm
             {
                 MessageBox.Show("Erro na operação");
             }
+        }
+
+        public void adicionaConta(Conta conta)
+        {
+            this.contas.Add(conta);
+//            cBoxEscolheConta.Items.Add("titular: " + conta.Titular.Nome);
+            this.popularComboBox(cBoxEscolheConta, conta);
+            this.popularComboBox(cBoxContaOrigem, conta);
+            this.popularComboBox(cBoxContaDestino, conta);
+
+        }
+
+        private void btnNovaConta_Click(object sender, EventArgs e)
+        {
+            FormCadastroConta formCadastroConta = new FormCadastroConta(this);
+            formCadastroConta.ShowDialog();
+
+        }
+
+        private void popularComboBox(ComboBox cBox,Conta conta)
+        {
+            cBox.Items.Add(conta.Titular.Nome);
+            
         }
     }
 }
