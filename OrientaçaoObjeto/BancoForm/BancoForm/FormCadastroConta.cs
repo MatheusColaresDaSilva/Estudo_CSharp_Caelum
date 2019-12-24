@@ -23,7 +23,6 @@ namespace BancoForm
 
         private void FormCadastroConta_Load(object sender, EventArgs e)
         {
-            this.cBoxTipoConta.Items.Add("Conta Normal");
             this.cBoxTipoConta.Items.Add("Conta Corrente");
             this.cBoxTipoConta.Items.Add("Conta Poupança");
         }
@@ -36,19 +35,15 @@ namespace BancoForm
             switch (tpConta)
             {
                 case 0:
-                    novaConta = new Conta();
-                break;
-
-                case 1:
                     novaConta = new ContaCorrente();
                 break;
 
-                case 2:
+                case 1:
                     novaConta = new ContaPoupanca();
                 break;
 
                 default:
-                    novaConta = new Conta();
+                    novaConta = new ContaCorrente();
                 break;
             }
                        

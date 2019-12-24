@@ -25,15 +25,6 @@ namespace BancoForm
         {
             this.totalizador = new TotalizadorDeContas();
             this.contas = new List<Conta>();
-
-            Conta c1 = new Conta();
-            c1.Titular = new Cliente("Victor");
-            c1.Numero = 1;
-            this.contas.Add(c1);
-
-            this.popularComboBox(cBoxEscolheConta, c1);
-            this.popularComboBox(cBoxContaOrigem, c1);
-            this.popularComboBox(cBoxContaDestino, c1);
         }
 
         private void btnDepositar_Click(object sender, EventArgs e)

@@ -2,33 +2,21 @@
 
 namespace BancoForm
 {
-    public class Conta
+    public abstract class Conta
     {
         public Conta()
         {
         }
 
-        public int Numero { get; internal set; }
+        public int Numero { get; set; }
+        public double Saldo { get; set; }
+        public Cliente Titular { get; set; }
 
-        public double Saldo { get; private set; }
-        public Cliente Titular { get; internal set; }
+        public abstract void Deposita(double valor);
 
-        public virtual void Deposita(double valor)
-        {
-            this.Saldo += valor;
-        }
+        public abstract bool Saca(double valor);
 
-        public virtual bool Saca(double valor)
-        {
-            if (this.Saldo >= valor)
-            {
-                this.Saldo -= valor;
-                return true;
-            }
-            return false;
-        }
-
-        public virtual bool Transfere(Conta contaDestino, double valor)
+        public bool Transfere(Conta contaDestino, double valor)
         {
             if (this.Saca(valor))
             {
