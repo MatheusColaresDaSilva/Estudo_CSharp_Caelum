@@ -121,5 +121,24 @@ namespace BancoForm
             cBox.Items.Add(conta.Titular.Nome);
             
         }
+
+        private void btnCalcularImposto_Click(object sender, EventArgs e)
+        {
+            int indice = cBoxEscolheConta.SelectedIndex;
+            Conta contaSelecionada = this.contas.ElementAt(indice);
+
+    
+            if(contaSelecionada is ITributavel)
+            {
+                ITributavel t = (ITributavel) contaSelecionada;
+                textoImposto.Text = Convert.ToString(t.CalcularTributos());
+            }
+            else
+            {
+                textoImposto.Clear();
+                MessageBox.Show("Essa conta nao e tributavel");
+            }
+
+        }
     }
 }

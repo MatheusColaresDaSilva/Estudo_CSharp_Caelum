@@ -59,6 +59,9 @@
             this.cBoxContaOrigem = new System.Windows.Forms.ComboBox();
             this.btnTransferir = new System.Windows.Forms.Button();
             this.lblContaOrigem = new System.Windows.Forms.Label();
+            this.gBoxImposto = new System.Windows.Forms.GroupBox();
+            this.btnCalcularImposto = new System.Windows.Forms.Button();
+            this.textoImposto = new System.Windows.Forms.TextBox();
             this.tabBanco.SuspendLayout();
             this.pageSacaDeposita.SuspendLayout();
             this.gBoxBuscaConta.SuspendLayout();
@@ -66,6 +69,7 @@
             this.gBoxConta.SuspendLayout();
             this.pageTransferir.SuspendLayout();
             this.gBoxTransferir.SuspendLayout();
+            this.gBoxImposto.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabBanco
@@ -75,11 +79,12 @@
             this.tabBanco.Location = new System.Drawing.Point(0, 0);
             this.tabBanco.Name = "tabBanco";
             this.tabBanco.SelectedIndex = 0;
-            this.tabBanco.Size = new System.Drawing.Size(471, 349);
+            this.tabBanco.Size = new System.Drawing.Size(473, 397);
             this.tabBanco.TabIndex = 10;
             // 
             // pageSacaDeposita
             // 
+            this.pageSacaDeposita.Controls.Add(this.gBoxImposto);
             this.pageSacaDeposita.Controls.Add(this.btnNovaConta);
             this.pageSacaDeposita.Controls.Add(this.gBoxBuscaConta);
             this.pageSacaDeposita.Controls.Add(this.gBoxTotalizadot);
@@ -87,16 +92,16 @@
             this.pageSacaDeposita.Location = new System.Drawing.Point(4, 22);
             this.pageSacaDeposita.Name = "pageSacaDeposita";
             this.pageSacaDeposita.Padding = new System.Windows.Forms.Padding(3);
-            this.pageSacaDeposita.Size = new System.Drawing.Size(463, 323);
+            this.pageSacaDeposita.Size = new System.Drawing.Size(465, 371);
             this.pageSacaDeposita.TabIndex = 0;
             this.pageSacaDeposita.Text = "Aba 1";
             this.pageSacaDeposita.UseVisualStyleBackColor = true;
             // 
             // btnNovaConta
             // 
-            this.btnNovaConta.Location = new System.Drawing.Point(6, 278);
+            this.btnNovaConta.Location = new System.Drawing.Point(6, 340);
             this.btnNovaConta.Name = "btnNovaConta";
-            this.btnNovaConta.Size = new System.Drawing.Size(75, 23);
+            this.btnNovaConta.Size = new System.Drawing.Size(75, 24);
             this.btnNovaConta.TabIndex = 14;
             this.btnNovaConta.Text = "Nova Conta";
             this.btnNovaConta.UseVisualStyleBackColor = true;
@@ -156,7 +161,7 @@
             // 
             this.gBoxTotalizadot.Controls.Add(this.lblTotalSaldo);
             this.gBoxTotalizadot.Controls.Add(this.textoTotalizador);
-            this.gBoxTotalizadot.Location = new System.Drawing.Point(269, 135);
+            this.gBoxTotalizadot.Location = new System.Drawing.Point(269, 93);
             this.gBoxTotalizadot.Name = "gBoxTotalizadot";
             this.gBoxTotalizadot.Size = new System.Drawing.Size(142, 95);
             this.gBoxTotalizadot.TabIndex = 8;
@@ -370,11 +375,39 @@
             this.lblContaOrigem.TabIndex = 10;
             this.lblContaOrigem.Text = "Escolha a Conta Origem";
             // 
+            // gBoxImposto
+            // 
+            this.gBoxImposto.Controls.Add(this.textoImposto);
+            this.gBoxImposto.Controls.Add(this.btnCalcularImposto);
+            this.gBoxImposto.Location = new System.Drawing.Point(269, 193);
+            this.gBoxImposto.Name = "gBoxImposto";
+            this.gBoxImposto.Size = new System.Drawing.Size(142, 79);
+            this.gBoxImposto.TabIndex = 15;
+            this.gBoxImposto.TabStop = false;
+            this.gBoxImposto.Text = "Imposto";
+            // 
+            // btnCalcularImposto
+            // 
+            this.btnCalcularImposto.Location = new System.Drawing.Point(29, 50);
+            this.btnCalcularImposto.Name = "btnCalcularImposto";
+            this.btnCalcularImposto.Size = new System.Drawing.Size(100, 23);
+            this.btnCalcularImposto.TabIndex = 0;
+            this.btnCalcularImposto.Text = "Calcular Imposto";
+            this.btnCalcularImposto.UseVisualStyleBackColor = true;
+            this.btnCalcularImposto.Click += new System.EventHandler(this.btnCalcularImposto_Click);
+            // 
+            // textoImposto
+            // 
+            this.textoImposto.Location = new System.Drawing.Point(29, 26);
+            this.textoImposto.Name = "textoImposto";
+            this.textoImposto.Size = new System.Drawing.Size(100, 20);
+            this.textoImposto.TabIndex = 1;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(469, 350);
+            this.ClientSize = new System.Drawing.Size(471, 398);
             this.Controls.Add(this.tabBanco);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -390,6 +423,8 @@
             this.pageTransferir.ResumeLayout(false);
             this.gBoxTransferir.ResumeLayout(false);
             this.gBoxTransferir.PerformLayout();
+            this.gBoxImposto.ResumeLayout(false);
+            this.gBoxImposto.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -427,6 +462,9 @@
         private System.Windows.Forms.ComboBox cBoxContaDestino;
         private System.Windows.Forms.Label lblContaDestino;
         private System.Windows.Forms.Button btnNovaConta;
+        private System.Windows.Forms.GroupBox gBoxImposto;
+        private System.Windows.Forms.TextBox textoImposto;
+        private System.Windows.Forms.Button btnCalcularImposto;
     }
 }
 

@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace BancoForm
 {
-    class ContaCorrente : Conta
+    class ContaCorrente : Conta, ITributavel
     {
+   
         public override void Deposita(double valor)
         {
             this.Saldo += valor - 0.10;
@@ -24,6 +25,10 @@ namespace BancoForm
             return false; 
        
         }
+        public double CalcularTributos()
+        {
+           return this.Saldo*0.05;
+        }
 
-     }
+    }
 }
