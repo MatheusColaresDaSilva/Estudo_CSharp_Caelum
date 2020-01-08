@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BancoForm
+namespace Banco.Execoes
 {
-    interface ITributavel
+    class SaldoInsuficienteException : Exception
     {
-        double CalcularTributos();
     }
 }

@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Banco.Contas;
+using Banco.Interface;
 
-namespace BancoForm
+namespace Banco.Totalizadores
 {
     class TotalizadorDeContas
     {

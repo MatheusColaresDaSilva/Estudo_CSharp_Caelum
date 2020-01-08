@@ -3,20 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Banco.Execoes;
 
-namespace BancoForm
+namespace Banco.Contas
 {
-    class ContaCorrente : Conta, ITributavel
+    class ContaPoupanca : Conta
     {
-   
         public override void Deposita(double valor)
         {
-            if (valor <= 0)
+            if(valor <= 0)
             {
                 throw new ArgumentException();
             }
 
-            this.Saldo += valor - 0.10;
+            this.Saldo += valor;
         }
 
         public override bool Saca(double valor)
@@ -24,22 +24,17 @@ namespace BancoForm
             if (valor <= 0)
             {
                 throw new ArgumentException();
-
+                
             }
 
             else if (this.Saldo >= valor)
             {
-                this.Saldo -= valor + 0.05;
+                this.Saldo -= valor + 0.10;
                 return true;
             }
-
+            
             throw new SaldoInsuficienteException();
-
+     
         }
-        public double CalcularTributos()
-        {
-           return this.Saldo*0.05;
-        }
-
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace BancoForm
+﻿namespace Banco.Pessoas
 {
     public class Cliente
     {

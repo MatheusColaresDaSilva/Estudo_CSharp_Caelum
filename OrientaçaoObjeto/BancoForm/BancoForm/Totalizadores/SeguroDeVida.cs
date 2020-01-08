@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Banco.Interface;
 
-namespace BancoForm
+namespace Banco.Totalizadores
 {
     class SeguroDeVida : ITributavel
     {

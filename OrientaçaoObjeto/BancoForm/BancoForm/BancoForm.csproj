@@ -46,32 +46,32 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Cliente.cs" />
-    <Compile Include="Conta.cs" />
-    <Compile Include="ContaCorrente.cs" />
-    <Compile Include="ContaPoupanca.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="Pessoas\Cliente.cs" />
+    <Compile Include="Contas\Conta.cs" />
+    <Compile Include="Contas\ContaCorrente.cs" />
+    <Compile Include="Contas\ContaPoupanca.cs" />
+    <Compile Include="Forms\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
+    <Compile Include="Forms\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormCadastroConta.cs">
+    <Compile Include="Forms\FormCadastroConta.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormCadastroConta.Designer.cs">
+    <Compile Include="Forms\FormCadastroConta.Designer.cs">
       <DependentUpon>FormCadastroConta.cs</DependentUpon>
     </Compile>
-    <Compile Include="ITributavel.cs" />
+    <Compile Include="Interface\ITributavel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SaldoInsuficienteException.cs" />
-    <Compile Include="SeguroDeVida.cs" />
-    <Compile Include="TotalizadorDeContas.cs" />
-    <EmbeddedResource Include="Form1.resx">
+    <Compile Include="Excecoes\SaldoInsuficienteException.cs" />
+    <Compile Include="Totalizadores\SeguroDeVida.cs" />
+    <Compile Include="Totalizadores\TotalizadorDeContas.cs" />
+    <EmbeddedResource Include="Forms\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormCadastroConta.resx">
+    <EmbeddedResource Include="Forms\FormCadastroConta.resx">
       <DependentUpon>FormCadastroConta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">

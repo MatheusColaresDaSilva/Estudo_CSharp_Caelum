@@ -1,6 +1,7 @@
 ﻿using System;
+using Banco.Pessoas;
 
-namespace BancoForm
+namespace Banco.Contas
 {
     public abstract class Conta
     {
