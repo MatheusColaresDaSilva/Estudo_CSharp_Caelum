@@ -11,19 +11,30 @@ namespace BancoForm
    
         public override void Deposita(double valor)
         {
+            if (valor <= 0)
+            {
+                throw new ArgumentException();
+            }
+
             this.Saldo += valor - 0.10;
         }
 
         public override bool Saca(double valor)
         {
+            if (valor <= 0)
+            {
+                throw new ArgumentException();
 
-            if (this.Saldo >= valor)
+            }
+
+            else if (this.Saldo >= valor)
             {
                 this.Saldo -= valor + 0.05;
                 return true;
             }
-            return false; 
-       
+
+            throw new SaldoInsuficienteException();
+
         }
         public double CalcularTributos()
         {

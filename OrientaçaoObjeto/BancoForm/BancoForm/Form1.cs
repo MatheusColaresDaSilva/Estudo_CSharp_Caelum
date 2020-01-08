@@ -31,33 +31,44 @@ namespace BancoForm
         {
             int indice = cBoxEscolheConta.SelectedIndex;
             Conta contaSelecionada = this.contas.ElementAt(indice);
-
             double valorDigitado = Convert.ToDouble(textoValor.Text);
-            contaSelecionada.Deposita(valorDigitado);
-            textoSaldo.Text = Convert.ToString(contaSelecionada.Saldo);
-            textoValor.Clear();
-            MessageBox.Show("Sucesso");
-
-            totalizador.Adicona(contaSelecionada);
-            textoTotalizador.Text = Convert.ToString(totalizador.SaldoTotal);
+            try
+            {
+                contaSelecionada.Deposita(valorDigitado);
+                textoSaldo.Text = Convert.ToString(contaSelecionada.Saldo);
+                textoValor.Clear();
+                MessageBox.Show("Sucesso");
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Argumento Inválido");
+            }
+            
+          
         }
 
         private void btnSacar_Click(object sender, EventArgs e)
         {
             int indice = cBoxEscolheConta.SelectedIndex;
             Conta contaSelecionada = this.contas.ElementAt(indice);
-
             double valorDigitado = Convert.ToDouble(textoValor.Text);
-            
-            if (contaSelecionada.Saca(valorDigitado)){
+
+            try
+            {
+                contaSelecionada.Saca(valorDigitado);
                 textoSaldo.Text = Convert.ToString(contaSelecionada.Saldo);
                 textoValor.Clear();
                 MessageBox.Show("Sucesso");
             }
-            else
+            catch (ArgumentException)
             {
-                MessageBox.Show("Não foi possível realizar a operação");
+                MessageBox.Show("Valor inválido");
             }
+            catch (SaldoInsuficienteException)
+            {
+                MessageBox.Show("Saldo Inválido");
+            }
+
            
         }
 
