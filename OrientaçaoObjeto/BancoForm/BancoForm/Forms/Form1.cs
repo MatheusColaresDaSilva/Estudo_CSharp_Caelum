@@ -33,8 +33,8 @@ namespace BancoForm
 
         private void btnDepositar_Click(object sender, EventArgs e)
         {
-            int indice = cBoxEscolheConta.SelectedIndex;
-            Conta contaSelecionada = this.contas.ElementAt(indice);
+            //int indice = cBoxEscolheConta.SelectedIndex;
+            Conta contaSelecionada = (Conta) cBoxEscolheConta.SelectedItem;// this.contas.ElementAt(indice);
             double valorDigitado = Convert.ToDouble(textoValor.Text);
             try
             {
@@ -53,8 +53,7 @@ namespace BancoForm
 
         private void btnSacar_Click(object sender, EventArgs e)
         {
-            int indice = cBoxEscolheConta.SelectedIndex;
-            Conta contaSelecionada = this.contas.ElementAt(indice);
+            Conta contaSelecionada = (Conta)cBoxEscolheConta.SelectedItem;
             double valorDigitado = Convert.ToDouble(textoValor.Text);
 
             try
@@ -88,8 +87,7 @@ namespace BancoForm
 
         private void cBoxEscolheConta_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int indice = cBoxEscolheConta.SelectedIndex;
-            Conta contaSelecionada = this.contas.ElementAt(indice);
+            Conta contaSelecionada = (Conta)cBoxEscolheConta.SelectedItem;
 
             textoTitular.Text = contaSelecionada.Titular.Nome;
             textoSaldo.Text = Convert.ToString(contaSelecionada.Saldo);
@@ -98,11 +96,11 @@ namespace BancoForm
 
         private void btnTransferir_Click(object sender, EventArgs e)
         {
-            int indiceOrigem = cBoxContaOrigem.SelectedIndex;
-            int indiceDestino = cBoxContaDestino.SelectedIndex;
+            //int indiceOrigem = cBoxContaOrigem.SelectedIndex;
+            //int indiceDestino = cBoxContaDestino.SelectedIndex;
             double valorDigitado = Convert.ToDouble(txtValorTransferir.Text);
-            Conta contaOrigem = this.contas.ElementAt(indiceOrigem);
-            Conta contaDestino = this.contas.ElementAt(indiceDestino);
+            Conta contaOrigem = (Conta)cBoxContaOrigem.SelectedItem; //this.contas.ElementAt(indiceOrigem);
+            Conta contaDestino = (Conta)cBoxContaDestino.SelectedItem; //this.contas.ElementAt(indiceDestino);
 
             if(contaOrigem.Transfere(contaDestino, valorDigitado))
             {
@@ -133,17 +131,16 @@ namespace BancoForm
 
         private void popularComboBox(ComboBox cBox,Conta conta)
         {
-            cBox.Items.Add(conta.Titular.Nome);
+            cBox.Items.Add(conta);
             
         }
 
         private void btnCalcularImposto_Click(object sender, EventArgs e)
         {
-            int indice = cBoxEscolheConta.SelectedIndex;
-            Conta contaSelecionada = this.contas.ElementAt(indice);
+            Conta contaSelecionada = (Conta)cBoxEscolheConta.SelectedItem;
 
-    
-            if(contaSelecionada is ITributavel)
+
+            if (contaSelecionada is ITributavel)
             {
                 ITributavel t = (ITributavel) contaSelecionada;
                 textoImposto.Text = Convert.ToString(t.CalcularTributos());

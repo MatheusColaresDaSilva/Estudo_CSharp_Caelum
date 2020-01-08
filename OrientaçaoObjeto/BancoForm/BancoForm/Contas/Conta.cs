@@ -27,5 +27,10 @@ namespace Banco.Contas
 
             return false;
         }
+
+        public override string ToString()
+        {
+            return "Titular " + this.Titular.Nome; 
+        }
     }
 }
