@@ -30,11 +30,14 @@
         {
             this.tabBanco = new System.Windows.Forms.TabControl();
             this.pageSacaDeposita = new System.Windows.Forms.TabPage();
+            this.gBoxImposto = new System.Windows.Forms.GroupBox();
+            this.textoImposto = new System.Windows.Forms.TextBox();
+            this.btnCalcularImposto = new System.Windows.Forms.Button();
             this.btnNovaConta = new System.Windows.Forms.Button();
             this.gBoxBuscaConta = new System.Windows.Forms.GroupBox();
             this.cBoxEscolheConta = new System.Windows.Forms.ComboBox();
             this.btnBuscarConta = new System.Windows.Forms.Button();
-            this.txtBuscarConta = new System.Windows.Forms.TextBox();
+            this.txtBuscarTitular = new System.Windows.Forms.TextBox();
             this.lblEscolhaConta = new System.Windows.Forms.Label();
             this.gBoxTotalizadot = new System.Windows.Forms.GroupBox();
             this.lblTotalSaldo = new System.Windows.Forms.Label();
@@ -59,17 +62,14 @@
             this.cBoxContaOrigem = new System.Windows.Forms.ComboBox();
             this.btnTransferir = new System.Windows.Forms.Button();
             this.lblContaOrigem = new System.Windows.Forms.Label();
-            this.gBoxImposto = new System.Windows.Forms.GroupBox();
-            this.btnCalcularImposto = new System.Windows.Forms.Button();
-            this.textoImposto = new System.Windows.Forms.TextBox();
             this.tabBanco.SuspendLayout();
             this.pageSacaDeposita.SuspendLayout();
+            this.gBoxImposto.SuspendLayout();
             this.gBoxBuscaConta.SuspendLayout();
             this.gBoxTotalizadot.SuspendLayout();
             this.gBoxConta.SuspendLayout();
             this.pageTransferir.SuspendLayout();
             this.gBoxTransferir.SuspendLayout();
-            this.gBoxImposto.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabBanco
@@ -97,6 +97,34 @@
             this.pageSacaDeposita.Text = "Aba 1";
             this.pageSacaDeposita.UseVisualStyleBackColor = true;
             // 
+            // gBoxImposto
+            // 
+            this.gBoxImposto.Controls.Add(this.textoImposto);
+            this.gBoxImposto.Controls.Add(this.btnCalcularImposto);
+            this.gBoxImposto.Location = new System.Drawing.Point(269, 193);
+            this.gBoxImposto.Name = "gBoxImposto";
+            this.gBoxImposto.Size = new System.Drawing.Size(142, 79);
+            this.gBoxImposto.TabIndex = 15;
+            this.gBoxImposto.TabStop = false;
+            this.gBoxImposto.Text = "Imposto";
+            // 
+            // textoImposto
+            // 
+            this.textoImposto.Location = new System.Drawing.Point(29, 26);
+            this.textoImposto.Name = "textoImposto";
+            this.textoImposto.Size = new System.Drawing.Size(100, 20);
+            this.textoImposto.TabIndex = 1;
+            // 
+            // btnCalcularImposto
+            // 
+            this.btnCalcularImposto.Location = new System.Drawing.Point(29, 50);
+            this.btnCalcularImposto.Name = "btnCalcularImposto";
+            this.btnCalcularImposto.Size = new System.Drawing.Size(100, 23);
+            this.btnCalcularImposto.TabIndex = 0;
+            this.btnCalcularImposto.Text = "Calcular Imposto";
+            this.btnCalcularImposto.UseVisualStyleBackColor = true;
+            this.btnCalcularImposto.Click += new System.EventHandler(this.btnCalcularImposto_Click);
+            // 
             // btnNovaConta
             // 
             this.btnNovaConta.Location = new System.Drawing.Point(6, 340);
@@ -111,7 +139,7 @@
             // 
             this.gBoxBuscaConta.Controls.Add(this.cBoxEscolheConta);
             this.gBoxBuscaConta.Controls.Add(this.btnBuscarConta);
-            this.gBoxBuscaConta.Controls.Add(this.txtBuscarConta);
+            this.gBoxBuscaConta.Controls.Add(this.txtBuscarTitular);
             this.gBoxBuscaConta.Controls.Add(this.lblEscolhaConta);
             this.gBoxBuscaConta.Location = new System.Drawing.Point(6, 6);
             this.gBoxBuscaConta.Name = "gBoxBuscaConta";
@@ -125,13 +153,13 @@
             this.cBoxEscolheConta.FormattingEnabled = true;
             this.cBoxEscolheConta.Location = new System.Drawing.Point(117, 44);
             this.cBoxEscolheConta.Name = "cBoxEscolheConta";
-            this.cBoxEscolheConta.Size = new System.Drawing.Size(121, 21);
+            this.cBoxEscolheConta.Size = new System.Drawing.Size(200, 21);
             this.cBoxEscolheConta.TabIndex = 13;
             this.cBoxEscolheConta.SelectedIndexChanged += new System.EventHandler(this.cBoxEscolheConta_SelectedIndexChanged);
             // 
             // btnBuscarConta
             // 
-            this.btnBuscarConta.Location = new System.Drawing.Point(242, 27);
+            this.btnBuscarConta.Location = new System.Drawing.Point(242, 17);
             this.btnBuscarConta.Name = "btnBuscarConta";
             this.btnBuscarConta.Size = new System.Drawing.Size(75, 23);
             this.btnBuscarConta.TabIndex = 12;
@@ -139,14 +167,14 @@
             this.btnBuscarConta.UseVisualStyleBackColor = true;
             this.btnBuscarConta.Click += new System.EventHandler(this.btnBuscarConta_Click);
             // 
-            // txtBuscarConta
+            // txtBuscarTitular
             // 
-            this.txtBuscarConta.ForeColor = System.Drawing.Color.Black;
-            this.txtBuscarConta.Location = new System.Drawing.Point(117, 19);
-            this.txtBuscarConta.Name = "txtBuscarConta";
-            this.txtBuscarConta.Size = new System.Drawing.Size(119, 20);
-            this.txtBuscarConta.TabIndex = 11;
-            this.txtBuscarConta.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtBuscarTitular.ForeColor = System.Drawing.Color.Black;
+            this.txtBuscarTitular.Location = new System.Drawing.Point(117, 19);
+            this.txtBuscarTitular.Name = "txtBuscarTitular";
+            this.txtBuscarTitular.Size = new System.Drawing.Size(119, 20);
+            this.txtBuscarTitular.TabIndex = 11;
+            this.txtBuscarTitular.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // lblEscolhaConta
             // 
@@ -294,7 +322,7 @@
             this.pageTransferir.Location = new System.Drawing.Point(4, 22);
             this.pageTransferir.Name = "pageTransferir";
             this.pageTransferir.Padding = new System.Windows.Forms.Padding(3);
-            this.pageTransferir.Size = new System.Drawing.Size(463, 323);
+            this.pageTransferir.Size = new System.Drawing.Size(465, 371);
             this.pageTransferir.TabIndex = 1;
             this.pageTransferir.Text = "Aba 2";
             this.pageTransferir.UseVisualStyleBackColor = true;
@@ -375,34 +403,6 @@
             this.lblContaOrigem.TabIndex = 10;
             this.lblContaOrigem.Text = "Escolha a Conta Origem";
             // 
-            // gBoxImposto
-            // 
-            this.gBoxImposto.Controls.Add(this.textoImposto);
-            this.gBoxImposto.Controls.Add(this.btnCalcularImposto);
-            this.gBoxImposto.Location = new System.Drawing.Point(269, 193);
-            this.gBoxImposto.Name = "gBoxImposto";
-            this.gBoxImposto.Size = new System.Drawing.Size(142, 79);
-            this.gBoxImposto.TabIndex = 15;
-            this.gBoxImposto.TabStop = false;
-            this.gBoxImposto.Text = "Imposto";
-            // 
-            // btnCalcularImposto
-            // 
-            this.btnCalcularImposto.Location = new System.Drawing.Point(29, 50);
-            this.btnCalcularImposto.Name = "btnCalcularImposto";
-            this.btnCalcularImposto.Size = new System.Drawing.Size(100, 23);
-            this.btnCalcularImposto.TabIndex = 0;
-            this.btnCalcularImposto.Text = "Calcular Imposto";
-            this.btnCalcularImposto.UseVisualStyleBackColor = true;
-            this.btnCalcularImposto.Click += new System.EventHandler(this.btnCalcularImposto_Click);
-            // 
-            // textoImposto
-            // 
-            this.textoImposto.Location = new System.Drawing.Point(29, 26);
-            this.textoImposto.Name = "textoImposto";
-            this.textoImposto.Size = new System.Drawing.Size(100, 20);
-            this.textoImposto.TabIndex = 1;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -414,6 +414,8 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.tabBanco.ResumeLayout(false);
             this.pageSacaDeposita.ResumeLayout(false);
+            this.gBoxImposto.ResumeLayout(false);
+            this.gBoxImposto.PerformLayout();
             this.gBoxBuscaConta.ResumeLayout(false);
             this.gBoxBuscaConta.PerformLayout();
             this.gBoxTotalizadot.ResumeLayout(false);
@@ -423,8 +425,6 @@
             this.pageTransferir.ResumeLayout(false);
             this.gBoxTransferir.ResumeLayout(false);
             this.gBoxTransferir.PerformLayout();
-            this.gBoxImposto.ResumeLayout(false);
-            this.gBoxImposto.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -436,7 +436,7 @@
         private System.Windows.Forms.GroupBox gBoxBuscaConta;
         private System.Windows.Forms.ComboBox cBoxEscolheConta;
         private System.Windows.Forms.Button btnBuscarConta;
-        private System.Windows.Forms.TextBox txtBuscarConta;
+        private System.Windows.Forms.TextBox txtBuscarTitular;
         private System.Windows.Forms.Label lblEscolhaConta;
         private System.Windows.Forms.GroupBox gBoxTotalizadot;
         private System.Windows.Forms.Label lblTotalSaldo;

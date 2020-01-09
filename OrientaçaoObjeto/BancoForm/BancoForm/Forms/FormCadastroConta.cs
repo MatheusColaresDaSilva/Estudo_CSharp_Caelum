@@ -11,11 +11,14 @@ using Banco.Contas;
 using Banco.Execoes;
 using Banco.Interface;
 using Banco.Pessoas;
+using Banco.Busca;
 
 namespace BancoForm
 {
     public partial class FormCadastroConta : Form
     {
+
+        private ICollection<string> devedores;
         private Form1 formPrincipal;
 
         public FormCadastroConta(Form1 formPrincipal)
@@ -23,6 +26,9 @@ namespace BancoForm
             this.formPrincipal = formPrincipal;
             
             InitializeComponent();
+
+            GeradorDeDevedores gerador = new GeradorDeDevedores();
+            this.devedores = gerador.GeraList();
         }
 
         private void FormCadastroConta_Load(object sender, EventArgs e)
@@ -50,12 +56,21 @@ namespace BancoForm
                     novaConta = new ContaCorrente();
                 break;
             }
-                       
-            novaConta.Titular = new Cliente(txtBoxNomeTitular.Text);
-            novaConta.Numero = Convert.ToInt32(txtBoxNumeroConta.Text);
 
-            this.formPrincipal.adicionaConta(novaConta);
-            this.Close();
+            bool ehDevedor = this.devedores.Contains(txtBoxNomeTitular.Text);
+
+            if (!ehDevedor)
+            {
+                novaConta.Titular = new Cliente(txtBoxNomeTitular.Text);
+                novaConta.Numero = Convert.ToInt32(txtBoxNumeroConta.Text);
+
+                this.formPrincipal.adicionaConta(novaConta);
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("devedor");
+            }
 
         }
 

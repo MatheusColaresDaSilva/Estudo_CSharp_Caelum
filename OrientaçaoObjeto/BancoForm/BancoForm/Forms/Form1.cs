@@ -19,6 +19,7 @@ namespace BancoForm
         //private ContaCorrente conta;
         private List<Conta> contas;
         private TotalizadorDeContas totalizador;
+        private Dictionary<string, Conta> dicionario;
 
         public Form1()
         {
@@ -27,8 +28,10 @@ namespace BancoForm
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            this.dicionario = new Dictionary<string, Conta>();
             this.totalizador = new TotalizadorDeContas();
             this.contas = new List<Conta>();
+        
         }
 
         private void btnDepositar_Click(object sender, EventArgs e)
@@ -77,12 +80,22 @@ namespace BancoForm
 
         private void btnBuscarConta_Click(object sender, EventArgs e)
         {
-            int indice = Convert.ToInt32(txtBuscarConta.Text);
-            Conta contaSelecionada = this.contas.ElementAt(indice);
+            string nomeTitular = txtBuscarTitular.Text;
+            try
+            {
+                Conta contaSelecionada = dicionario[nomeTitular];
+                textoTitular.Text = contaSelecionada.Titular.Nome;
+                textoSaldo.Text = Convert.ToString(contaSelecionada.Saldo);
+                textoNumero.Text = Convert.ToString(contaSelecionada.Numero);
 
-            textoTitular.Text = contaSelecionada.Titular.Nome;
-            textoSaldo.Text = Convert.ToString(contaSelecionada.Saldo);
-            textoNumero.Text = Convert.ToString(contaSelecionada.Numero);
+                cBoxEscolheConta.SelectedItem = contaSelecionada;
+            }
+            catch (KeyNotFoundException)
+            {
+                MessageBox.Show("Esse Titular não existe");
+            }   
+
+            
         }
 
         private void cBoxEscolheConta_SelectedIndexChanged(object sender, EventArgs e)
@@ -115,10 +128,13 @@ namespace BancoForm
         public void adicionaConta(Conta conta)
         {
             this.contas.Add(conta);
+            
 //            cBoxEscolheConta.Items.Add("titular: " + conta.Titular.Nome);
             this.popularComboBox(cBoxEscolheConta, conta);
             this.popularComboBox(cBoxContaOrigem, conta);
             this.popularComboBox(cBoxContaDestino, conta);
+
+            this.dicionario.Add(conta.Titular.Nome, conta);
 
         }
 
